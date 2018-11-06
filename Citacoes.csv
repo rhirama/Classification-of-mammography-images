@@ -1,0 +1,114 @@
+﻿Passagem;Autor(es)/ Artigo;Ano;Notas;
+"Mammogram analysis depends mainly on the experience of the
+radiologist, and is also affected by his fatigue and other factors.This means that an automated
+process for image analysis should be considered, when working
+with mammographic images. A good automated system should
+be able to make automated image analysis and enable an
+efficient classification on the examined tissue";Kitanovski, I. et al. Comparison of feature extraction algorithms for mammography images Shanghai: IEEE ;2011;Lembrar de pegar parte em que os resulttados de um CAD servem como uma seguranca para que o medico especialista dë a palavra final;
+We are using five different feature descriptors: GLDM (Gray Level Difference Method), LBP (Local Binary Patterns), GLRLM (Grey Level Run Length Method), Haralick and Gabor texture features;Kitanovski, I. et al. Comparison of feature extraction algorithms for mammography images Shanghai: IEEE ;2011;;
+Breast cancer is an important risk that must be concerned by everyone around the world. With almost 1.7 million new cases diagnosed in 2012, breast cancer is the most common form of cancer around the world;Ferlay, J. et al. GLOBOCAN 2012 v1.1, Cancer Incidence and Mortality Worldwide: IARC CancerBase No. 11;2012;;
+Cancer is a disease caused by the changes occurred in cells spread uncontrollably. Mostly cancer cells forms a lump or mass which is called tumor and named after the part of body in which it originates. Breast cancer usually produces no pain at its early stage when it is easily treated, that’s why screening is important for early detection.;"Charan, S.; Muhammad, J. K.;  Khurshid Khurram Breast Cancer Detection in Mammograms using Convolutional Neural Network Sukkur: IEEE";2018;;
+"Most benign masses possess well-defined and sharp boundaries, in contrast to fuzzy or ill-defined boundaries possessed by malignant tumors. However, certain benign entities such as fibroadenomas
+and cystic masses may also have poorly defined margins";"Homer, M. J. Mammographic Interpretation: A Practical Approach.
+Boston, MA: McGraw-Hill";1997;;
+"Benign masses are typically perceived to be
+more homogeneous as compared to malignant tumors in terms
+of density distribution.";"Mudigonda, N. R.; Rangayyan, R. M.; Desautels, J. E. L. Gradient and Texture Analysis for the Classification
+of Mammographic Masses. Transactions On Medical Imaging, Alberta, Vol. 19, No. 10, pp. 1032-1043"; Outubro 2000;;
+"Evidence of a breast tumor is usually indicated
+by the presence of a dense mass and/or a change in
+the texture or distortion in the mammogram.";"Rangayyan, R. M.; Nguyen, T. M. Fractal Analysis of Contours of Breast Masses in Mammograms. Journal of Digital Imaging, Vol. 20, No. 3, pp. 223-237"; Setembro 2007;;
+"A typical benign mass is round
+and smooth with a well-defined (well-circumscribed)
+boundary, whereas a typical malignant
+tumor is spiculated and rough with a blurry
+boundary";"Rangayyan, R. M.; Nguyen, T. M. Fractal Analysis of Contours of Breast Masses in Mammograms. Journal of Digital Imaging, Vol. 20, No. 3, pp. 223-238"; Setembro 2007;;
+"In 2017, estimated 252,710 new
+invasive breast cancer cases will be developed in women, along
+with 63,410 of non-invasive breast cancer case, and 40,610 case
+breast cancer deaths ";"“U.S. Breast Cancer Statistics” Breastcancer.org 120 East Lancaster
+Avenue, Suite 201 Ardmore, PA 19003 web. Available:
+http://www.breastcancer.org/. Last accessed : 02 may 2018";02/mai/18;;
+"The best way to identify the
+presence of breast cancer at an early stage is by interpreting
+mammogram images. Though mammography is an effective
+screening tool used by the radiologist for breast cancer
+detection at an early stage ";L. Tabar, P.Dean, “Mammography and breast cancer: the new era,” International Journal of Gynecology and Obstetrics, vol. 82, Issue 3, September 2003, pp. 319-326; Setembro 2003;;
+"abnormal tissue region may also be
+missed in visual (manual) interpretation of a mammogram
+image";"Mammogram Classification using Gray-Level Cooccurrence
+Matrix for Diagnosis of Breast Cancer ";2016;;
+"When implementing a
+computer-aided detection system (CAD), one of the main
+points that should be considered very seriously is the selection
+of appropriate features that could be used to distinguish
+between benignancy and malignancy.";"A Novel Method of Extracting and Classifying the
+Features of Masses in Mammograms Han Zhen-zhong,  Liu Pei-guo,
+Mao Jian";2017;;
+"Modern scanners have much higher resolution than earlier
+devices, which has improved the ability to describe some
+obvious differences between the benignancy and malignancy of
+a tumor";"A Novel Method of Extracting and Classifying the
+Features of Masses in Mammograms Han Zhen-zhong,  Liu Pei-guo,
+Mao Jian";2017;;
+"Benign lesions form a pseudocapsule that prevents the
+tumor from invading the surrounding normal tissues.
+Therefore, benign masses always have well-defined contours
+with rounder, smoother shapes. By comparison, the contours of
+malignant tumors are poorly defined and irregular";Tang J S, Rangayyan R M, Xu J, et al. Computer-Aided Detection and Diagnosis of Breast Cancer with Mammography: Recent Advances [J]. IEEE Transactions on Information Technology in Biomedicine. 2009, 13(2):236-251.;2009;;
+"Using only the contour of a mass to describe its features is
+not a comprehensive approach because no information is
+available to determine the inside characteristics of the mass. ";A Novel Method of Extracting and Classifying the Features of Masses in Mammograms;2017;;
+For benign tumors, the gray level obviously changes between the internal and external parts of the mass. In contrast, malignant tumors have no obvious boundaries, and the edge gray changes gradually because of infiltrating growth;"Shen J L, Mammary Ultrasound Image Analysis and Breast
+Tumors Classification [D]. Shanghai: Fudan University, 2006. ";2006;;
+"Mass density can be high, isodense, low, and fat
+containing. Moreover, mass margin can be circumscribed,
+micro-lobulated, indistinct, and spiculated. Finally, mass shape can be round, oval, lobular, and irregular";J. Bozek, M. Mustra, K.Delac, and M. Grgic, .A survey of image processing algorithms in digital mammography,. J. Recent Advances in Multimedia Signal Processing and Communications, vol. 231, pp. 631. 657, 2009.;2009;;
+"The quality of a feature is related to its ability to
+discriminate observations from different classes. The
+description task often generates a large number of features
+and the obtained feature space may include a large number of
+irrelevant features. This will induce greater computational
+cost, occupy a lot of storage space and decrease the
+classification performance.";Image Features Extraction for Masses Classification in Mammograms;2014;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
+;;;;
