@@ -34,35 +34,6 @@ def maxAreaContour(contours):
 			max_area = cv2.contourArea(cont)
 	return cnt
 
-def slope(pt0, pt):
-	x1 = pt0[0]
-	y1 = pt0[1]
-	print(x1, y1)
-
-	x2 = pt[0]
-	y2 = pt[1]
-	print(x2, y2)
-
-	slope = (y2 - y1) / (x2 - x1)
-	return slope
-
-# def angle(line1, line2):
-# 	pt0Ln1 = np.array([line1[0][0], line1[0][1]])
-# 	ptLn1 = np.array([line1[1][0], line1[1][1]])
-
-# 	pt0Ln2 = np.array([line2[0][0], line2[0][1]])
-# 	ptLn2 = np.array([line2[1][0], line2[1][1]])
-
-# 	slopeLn1 = slope(pt0Ln1, ptLn1)
-# 	slopeLn2 = slope(pt0Ln2, ptLn2)
-
-# 	tanTheta = math.fabs((slopeLn2 - slopeLn1)/(1 +(slopeLn2*slopeLn1)))
-# 	thetaRandians = math.atan(tanTheta);
-# 	thetaDegrees = math.degrees(thetaRandians)
-# 	return thetaDegrees
-
-#def spiculationIndex(polygonalModel):
-
 imgColor, imgGray = loadImg("SPIC_DB_207.jpg")
 cv2.imshow("imagem tons de cinza", imgGray)
 cv2.waitKey(0)
