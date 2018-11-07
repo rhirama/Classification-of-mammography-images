@@ -5,7 +5,6 @@ import importlib
 
 imgLoader = importlib.import_module('ImgLoader')
 
-
 def maxAreaContour(contours):
     cnt = contours[0]
     max_area = cv2.contourArea(cnt)
@@ -55,7 +54,6 @@ def calcultateSpiculationIndex(contour):
     spiculationIndex = numer/denom
     return spiculationIndex
 
-
 name = 'SPIC_DB_207.jpg'
 
 imgColor, imgGray = imgLoader.loadImg(name)
@@ -65,5 +63,4 @@ cnt = maxAreaContour(contours)
 
 perimeter = int(cv2.arcLength(cnt, False))
 epsilon = 0.01*perimeter
-# parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
-approx = cv2.approxPolyDP(cnt, epsilon, False)
+approx = cv2.approxPolyDP(cnt, epsilon, False)# parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
