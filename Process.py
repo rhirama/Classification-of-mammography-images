@@ -61,9 +61,6 @@ def slope(pt0, pt):
 # 	thetaDegrees = math.degrees(thetaRandians)
 # 	return thetaDegrees
 
-def angle(lnA, lnB):
-	d	
-
 #def spiculationIndex(polygonalModel):
 
 imgColor, imgGray = loadImg("SPIC_DB_207.jpg")
