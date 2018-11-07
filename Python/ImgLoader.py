@@ -15,7 +15,7 @@ def createClearCanvas(img):
 	return canvas
 
 def preProcess(imgGray):
-	ret,thresh = cv2.threshold(imgGray,120,255,cv2.THRESH_BINARY) #dependendo da imagem modificar os valores de thresh e maxval, para as imagens do Ricardo 20, 255
+	ret,thresh = cv2.threshold(imgGray,20,255,cv2.THRESH_BINARY) #dependendo da imagem modificar os valores de thresh e maxval, para as imagens do Ricardo 20, 255
 	cv2.imshow("binarizacao da imagem", thresh)
 	cv2.waitKey(0)
 	im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
