@@ -10,7 +10,7 @@ def angle(x1, y1, x2, y2):  # calcula o angulo entre dois vetores usando o produ
     denom = dist1 * dist2
     return math.degrees(math.acos(numer/denom)), dist2
 
-def calcultateSpiculationIndex(contour):
+def calcultateSpiculationIndex(approx):
     numer = 0
     denom = 0
 

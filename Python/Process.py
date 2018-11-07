@@ -26,5 +26,8 @@ cnt = maxAreaContour(contours)
 perimeter = int(cv2.arcLength(cnt, False))
 epsilon = 0.01*perimeter
 approx = cv2.approxPolyDP(cnt, epsilon, False)# parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
+cv2.drawContours(canvas, [approx],  0, (0, 0, 255), 1)
+cv2.imshow('modelo poligonal', canvas)
+cv2.waitKey(0)
 si = spIndex.calcultateSpiculationIndex(approx)
 print(si)
