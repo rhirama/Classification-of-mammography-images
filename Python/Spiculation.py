@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 import math
 
@@ -23,7 +22,7 @@ def calcultateSpiculationIndex(approx):
 
         ang, vLength = angle(x1, y1, x2, y2)
 
-        print(ang)
+        #print(ang)
 
         numer += (1 + math.cos(math.radians(ang))) * vLength
         denom += vLength

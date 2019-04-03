@@ -14,7 +14,7 @@ cnt = contours[1]
 
 perimeter = int(cv2.arcLength(cnt, True))
 epsilon = 0.01*perimeter
-approx = cv2.approxPolyDP(cnt, epsilon, True) #parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
+approx = cv2.approxPolyDP(cnt, epsilon, True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
 
 cv2.drawContours(canvas, [approx], 0, (0, 0, 255), 1)
 cv2.drawContours(canvas2, [cnt], 0, (0, 255, 0), 1) 
