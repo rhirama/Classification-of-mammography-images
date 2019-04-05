@@ -28,7 +28,7 @@ for multiplier in [0.05, 0.01, 0.001]:
     worksheet = workbook.add_worksheet(str(multiplier))
     row = 0
     col = 0
-    for name in glob.glob("D:/Users/Rodrigo S. Hirama/Imagens/Toy/*.jpg"):
+    for name in glob.glob("D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg"):
         
         imgColor, imgGray = imgLoaderMod.loadImg(name)
         canvas = imgLoaderMod.createClearCanvas(imgColor)

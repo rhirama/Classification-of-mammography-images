@@ -1,6 +1,7 @@
 import numpy as np
 import math
 
+
 def angle(x1, y1, x2, y2):  # calcula o angulo entre dois vetores usando o produto escalar
     dist1 = math.sqrt(x1**2 + y1**2)
     dist2 = math.sqrt(x2**2 + y2**2)
@@ -9,7 +10,8 @@ def angle(x1, y1, x2, y2):  # calcula o angulo entre dois vetores usando o produ
     denom = dist1 * dist2
     return math.degrees(math.acos(numer/denom)), dist2
 
-def calcultateSpiculationIndex(approx):
+
+def calculate_spiculation_index(approx):
     numer = 0
     denom = 0
 
@@ -20,12 +22,12 @@ def calcultateSpiculationIndex(approx):
         x1, y1 = line1[0] - ref[0], line1[1] - ref[1]
         x2, y2 = line2[0] - ref[0], line2[1] - ref[1]
 
-        ang, vLength = angle(x1, y1, x2, y2)
+        ang, v_length = angle(x1, y1, x2, y2)
 
         #print(ang)
 
-        numer += (1 + math.cos(math.radians(ang))) * vLength
-        denom += vLength
+        numer += (1 + math.cos(math.radians(ang))) * v_length
+        denom += v_length
 
-    spiculationIndex = numer/denom
-    return spiculationIndex
+    spiculation_index = numer/denom
+    return spiculation_index
