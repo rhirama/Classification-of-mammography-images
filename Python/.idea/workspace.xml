@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23402b7c-928d-48db-b3e5-929a68060538" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Fractal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Process.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compactness.py" beforeDir="false" afterPath="$PROJECT_DIR$/Compactness.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImgLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImgLoader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Polygonal-teste.py" beforeDir="false" afterPath="$PROJECT_DIR$/Polygonal-teste.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spiculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spiculation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Comparacao_Contours57EDG.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Comparacao_Contours57EDG.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Comparacao_contours54BND.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Comparacao_contours54BND.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Process_teste.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fdbc2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/fdbc2d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polygonal_0.0075_SPIC_DB_207.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/process_fdbc2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/process_fdbc2d.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,52 +22,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Fractal.py">
+        <entry file="file://$PROJECT_DIR$/process_fdbc2d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-end-line="29" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImgLoader.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__main__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Process.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" selection-start-column="10" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Process_teste.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            <state relative-caret-position="1088">
+              <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -84,6 +42,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Comparacao_contours54BND.xlsx</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -96,6 +59,8 @@
         <option value="$PROJECT_DIR$/__main__.py" />
         <option value="$PROJECT_DIR$/ImgLoader.py" />
         <option value="$PROJECT_DIR$/Fractal.py" />
+        <option value="$PROJECT_DIR$/fdbc2d.py" />
+        <option value="$PROJECT_DIR$/process_fdbc2d.py" />
       </list>
     </option>
   </component>
@@ -111,6 +76,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,12 +88,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/process_fdbc2d.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -144,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Python_fdbc">
     <configuration name="Python" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -161,6 +127,25 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python_fdbc" type="PythonConfigurationType" factoryName="Python">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\rodri\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_fdbc2d.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -189,6 +174,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Python" />
+      <item itemvalue="Python.Python_fdbc" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -203,11 +192,14 @@
       <workItem from="1552351965072" duration="3312000" />
       <workItem from="1552355546988" duration="2743000" />
       <workItem from="1552358370739" duration="234000" />
+      <workItem from="1554489930257" duration="2658000" />
+      <workItem from="1554492862582" duration="1228000" />
+      <workItem from="1554494216202" duration="2223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6289000" />
+    <option name="totallyTimeSpent" value="12398000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -221,7 +213,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1433902" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14818764" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -236,11 +228,11 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.24377032" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.3672806" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.32942432" />
       <window_info anchor="right" id="R Graphics" order="4" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="6" side_tool="true" weight="0.1684435" />
@@ -250,65 +242,64 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>name             ...              spiculation_index(Alberta)
+0     C110_95RCROI.jpg             ...                                0.049462
+1     C110_95ROROI.jpg             ...                                0.039058
+2     C145_95LCROI.jpg             ...                                0.041676
+3     C145_95LOROI.jpg             ...                                0.032753
+4     C146_96RCROI.jpg             ...                                0.084442
+5     C146_96ROROI.jpg             ...                                0.085936
+6     C148_97RCROI.jpg             ...                                0.066605
+7     C148_97ROROI.jpg             ...                                0.048622
+8     C155_95RCROI.jpg             ...                                0.091689
+9     C155_95ROROI.jpg             ...                                0.164396
+10    C157_96LCROI.jpg             ...                                0.079850
+11    C157_96LOROI.jpg             ...              ...</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Process.py">
+    <entry file="file://$PROJECT_DIR$/../Process.py" />
+    <entry file="file://$PROJECT_DIR$/../normalize_index.py" />
+    <entry file="file://$PROJECT_DIR$/ImgLoader.py" />
+    <entry file="file://$PROJECT_DIR$/__main__.py" />
+    <entry file="file://$PROJECT_DIR$/Process_teste.py" />
+    <entry file="file://$PROJECT_DIR$/fractal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="85">
+          <caret line="8" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fdbc2d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../normalize_index.py">
+    <entry file="file://$PROJECT_DIR$/process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Fractal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-end-line="29" />
+        <state relative-caret-position="323">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImgLoader.py">
+    <entry file="file://$PROJECT_DIR$/process_fdbc2d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-start-column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Process_teste.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        <state relative-caret-position="1088">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

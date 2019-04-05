@@ -5,9 +5,6 @@ import os
 import xlsxwriter
 import pandas
 
-img_loader_mod = importlib.import_module('img_loader')
-fd_mod = importlib.import_module('fractal')
-
 
 def max_area_contour(contours):
     cnt = contours[0]
@@ -19,6 +16,9 @@ def max_area_contour(contours):
             max_area = cv2.contourArea(cont)
     return cnt
 
+
+img_loader_mod = importlib.import_module('img_loader')
+fd_mod = importlib.import_module('fractal')
 
 name = 'SPIC_DB_207.jpg'
 img_color, img_gray = img_loader_mod.load_img(name)
