@@ -4,7 +4,7 @@ import numpy as np
 
 def load_img(name):
 	img = cv2.imread(name)
-	# img = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_CUBIC)
+	img = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_CUBIC)
 	img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	return img, img_gray
 
