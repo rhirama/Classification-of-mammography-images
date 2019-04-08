@@ -7,6 +7,7 @@ import xlsxwriter
 img_loader_mod = importlib.import_module('img_loader')
 si_mod = importlib.import_module('spiculation')
 
+
 def max_area_contour(contours):
     cnt = contours[0]
     max_area = cv2.contourArea(cnt)
@@ -17,7 +18,8 @@ def max_area_contour(contours):
             max_area = cv2.contourArea(cont)
     return cnt
 
-name = 'SPIC_DB_207.jpg'
+
+name = 'quadrado.jpg'
 multiplier = 0.01
 
 img_color, img_gray = img_loader_mod.load_img(name)

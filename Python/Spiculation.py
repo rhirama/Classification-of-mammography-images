@@ -13,27 +13,20 @@ def angle(p1, p2, p3):  # calcula o angulo entre dois vetores usando o produto e
     numer = (x1 * x2 + y1 * y2)
     denom = dist1 * dist2
     ang_aux = math.degrees(math.acos(numer/denom))
-    
-    # print(ang_aux)
 
     z_direction = ((p2[0] - p1[0])*(p3[1] - p2[1])) - ((p3[0] - p2[0])*(p2[1] - p1[1]))
 
-    print(z_direction)
-
     if z_direction > 0:
-        ang = 180 - ang_aux
+        ang = 360 - ang_aux
     
     elif z_direction < 0:
-        ang = 180 + ang_aux
+        ang = ang_aux
 
     return ang, dist2
 
 def calculate_si(approx):
     numer = 0
     denom = 0
-
-    print('modelo poligonal')
-    print(approx)
 
     for i in range(len(approx)):
 
@@ -43,7 +36,7 @@ def calculate_si(approx):
 
         ang, v_length = angle(line1, ref, line2)
 
-        # print(ang)
+        print(ang)
         numer += (1 + math.cos(math.radians(ang))) * v_length
         denom += v_length
 
