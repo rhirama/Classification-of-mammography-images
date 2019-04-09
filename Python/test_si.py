@@ -29,7 +29,7 @@ cnt = max_area_contour(contours)
 
 perimeter = int(cv2.arcLength(cnt, True))
 epsilon = multiplier * perimeter
-approx = cv2.approxPolyDP(cnt, epsilon, True)# parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
+approx = cv2.approxPolyDP(cnt, epsilon, True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
 cv2.drawContours(canvas, [approx],  0, (255, 255, 255), 1)
 
 si = si_mod.calculate_si(approx)

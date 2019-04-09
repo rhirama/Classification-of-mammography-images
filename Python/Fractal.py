@@ -49,7 +49,7 @@ def ruler_fractal_dimension(contours):
     assert len(contour) == 1  # assert there is only one contour (the actual nodule)
 
     # https://stackoverflow.com/questions/37041008/python-boundingrect-with-list-of-points
-    contour = np.squeeze(contour) # removes unwanted empty dimensions from array
+    contour = np.squeeze(contour)  # removes unwanted empty dimensions from array
     _, _, w, h = cv2.boundingRect(np.array(contour))
     diag = sqrt(w**2 + h**2)
     feret_diam = min(w, h)

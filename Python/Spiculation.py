@@ -24,9 +24,19 @@ def angle(p1, p2, p3):  # calcula o angulo entre dois vetores usando o produto e
 
     return ang, dist2
 
+
+def weight_angles(angles, sizes):
+    ang_weight = 0
+    return ang_weight
+
+
 def calculate_si(approx):
     numer = 0
     denom = 0
+    is_spic = False
+
+    angles = []
+    sizes = []
 
     for i in range(len(approx)):
 
@@ -36,9 +46,18 @@ def calculate_si(approx):
 
         ang, v_length = angle(line1, ref, line2)
 
-        print(ang)
-        numer += (1 + math.cos(math.radians(ang))) * v_length
-        denom += v_length
+        if ang > 180:
+            if not is_spic:
+                is_spic = True
+                sizes.append(v_length)
+            else:  # Completar, falta terminar a ponderação
+                is_spic = False
+        else:
+            angles.append(ang)
+            sizes.append(v_length)
+
+        # numer += (1 + math.cos(math.radians(ang))) * v_length
+        # denom += v_length
 
     spiculation_index = numer/denom
     return spiculation_index
