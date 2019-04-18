@@ -44,10 +44,7 @@ def fractal_dimension(z, threshold=120):
     return -coeffs[0]
 
 
-def ruler_fractal_dimension(contours):
-    contour = [c for c in contours if cv2.contourArea(c) > 10]  # filters the contours to remove small debris
-    assert len(contour) == 1  # assert there is only one contour (the actual nodule)
-
+def ruler_fractal_dimension(contour):
     # https://stackoverflow.com/questions/37041008/python-boundingrect-with-list-of-points
     contour = np.squeeze(contour)  # removes unwanted empty dimensions from array
     _, _, w, h = cv2.boundingRect(np.array(contour))
@@ -137,11 +134,22 @@ def shuffle_contour(contour):
 
 
 # # ruler-method test
+# def max_area_contour(contours):
+#     cnt = contours[0]
+#     max_area = cv2.contourArea(cnt)
+#
+#     for cont in contours:
+#         if cv2.contourArea(cont) > max_area:
+#             cnt = cont
+#             max_area = cv2.contourArea(cont)
+#     return cnt
+#
 # image = cv2.imread('koch.jpg')
 # img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 # ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
 # # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
 # contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+# cnt = max_area_contour(contours)
 # #
 # # # show contour
 # # cv2.drawContours(image, contours, -1, (255,0,255))
@@ -151,4 +159,4 @@ def shuffle_contour(contour):
 # # cv2.waitKey(0)
 #
 # random.seed(4)
-# ruler_fractal_dimension(contours)
+# ruler_fractal_dimension(cnt)
