@@ -5,6 +5,9 @@ import os
 import openpyxl
 import xlsxwriter
 import pandas
+import numpy as np
+from matplotlib import pyplot as plt
+
 
 img_loader_mod = importlib.import_module('img_loader')
 fd_mod = importlib.import_module('fractal')
@@ -44,11 +47,28 @@ for file, img_path in files_paths:
                 contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
+                cnt = np.squeeze(cnt)
+                one_d = img_loader_mod.make_1d_contour(cnt)
+
+                # make 1d image and save it on a temporary png
+                fig = plt.figure(frameon=False)
+                ax = fig.add_axes([0, 0, 1, 1])
+                ax.plot(one_d)
+                fig.savefig('temp')
+
+                # load the temp png and execute the ruler method
+                img_color, img_gray = img_loader_mod.load_img("temp.png")
+                img_gray = cv2.bitwise_not(img_gray)  # invert colors on the temp png
+                ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
+                # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
+                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                cnt = max_area_contour(contours)
+
                 fd.append(fd_mod.ruler_fractal_dimension(cnt))
                 name = os.path.basename(name)
 
             # fd_df = pandas.DataFrame(fd)
-            features.insert(4, 'fd_2Druler', fd, True)
+            features.insert(4, 'fd_1Druler', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')
