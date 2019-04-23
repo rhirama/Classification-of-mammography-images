@@ -3,7 +3,7 @@ import seaborn as sb
 import matplotlib.pylab as plt
 
 file_bnd = 'Comparacao_contours54BND.xlsx'
-file_edg = 'Comparacao_contours57EDG.xlsx'
+file_edg = 'Comparacao_Contours57EDG.xlsx'
 
 feats_bnd = pd.ExcelFile(file_bnd)
 feats_edg = pd.ExcelFile(file_edg)

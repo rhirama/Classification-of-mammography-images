@@ -6,9 +6,8 @@ import openpyxl
 import xlsxwriter
 import pandas
 
-img_loader_mod = importlib.import_module('img_loader')
-fd_mod = importlib.import_module('fractal')
-
+import Fractal
+import img_loader
 
 def max_area_contour(contours):
     cnt = contours[0]
@@ -21,11 +20,11 @@ def max_area_contour(contours):
     return cnt
 
 
-xlsx_54BND = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours54BND.xlsx'
-xlsx_57EDG = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours57EDG.xlsx'
+xlsx_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Comparacao_contours54BND.xlsx'
+xlsx_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Comparacao_Contours57EDG.xlsx'
 
-imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
-imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
+imgs_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours54BND/*.jpg'
+imgs_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
 sheet_names = [0.05, 0.01, 0.001]
@@ -38,13 +37,13 @@ for file, img_path in files_paths:
             fd = []
             features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
             for name in glob.glob(img_path):
-                img_color, img_gray = img_loader_mod.load_img(name)
+                img_color, img_gray = img_loader.load_img(name)
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
-                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
-                fd.append(fd_mod.ruler_fractal_dimension(cnt))
+                fd.append(Fractal.ruler_fractal_dimension(cnt))
                 name = os.path.basename(name)
 
             # fd_df = pandas.DataFrame(fd)

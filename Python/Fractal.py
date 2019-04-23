@@ -53,29 +53,30 @@ def ruler_fractal_dimension(contour):
 
     steps = []
     perimeters = []
-
+    
+    step_len = 2
     for i in range(0, 12):
-        step_len = diag*1/(2*2**(1/2*i))
+        # step_len = diag*1/(2*2**(1/2*i))
         if step_len > feret_diam / 3:
             continue
-        elif step_len < 1:
-            break
 
         perimeter = 0
-        for j in range(0, 25):
+        for j in range(0, 50):
             perimeter += ruler_method(contour, step_len)
         if perimeter < 0:
             break
 
-        print('step_len: ', step_len, ' perimeter: ', perimeter/25)
+        print('step_len: ', step_len, ' perimeter: ', perimeter/50)
         steps.append(step_len)
-        perimeters.append(perimeter/10)
+        perimeters.append(perimeter/50)
+        
+        step_len = step_len*2
 
     coeffs = np.polyfit(np.log(steps), np.log(perimeters), 1)
-    print(1-coeffs[0])
-    plt.plot(np.log(steps), np.log(perimeters))
-    plt.plot(np.log(steps), np.log(steps)*coeffs[0]+coeffs[1])
-    plt.show()
+    # print(1-coeffs[0])
+    # plt.plot(np.log(steps), np.log(perimeters))
+    # plt.plot(np.log(steps), np.log(steps)*coeffs[0]+coeffs[1])
+    # plt.show()
     return 1-coeffs[0]
 
 
@@ -137,26 +138,28 @@ def shuffle_contour(contour):
 # def max_area_contour(contours):
 #     cnt = contours[0]
 #     max_area = cv2.contourArea(cnt)
-#
+# 
 #     for cont in contours:
 #         if cv2.contourArea(cont) > max_area:
 #             cnt = cont
 #             max_area = cv2.contourArea(cont)
 #     return cnt
-#
-# image = cv2.imread('koch.jpg')
+# 
+# image = cv2.imread('tametwindragon.jpg')
 # img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+# # img_gray = cv2.bitwise_not(img_gray)  # invert colors on the temp png
 # ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
 # # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
-# contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+# im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 # cnt = max_area_contour(contours)
-# #
+# 
 # # # show contour
-# # cv2.drawContours(image, contours, -1, (255,0,255))
+# # cv2.drawContours(im2, contours, -1, (255,0,255))
 # # cv2.namedWindow('help',cv2.WINDOW_NORMAL)
 # # cv2.resizeWindow('help', 1200,1200)
-# # cv2.imshow('help', image)
+# # cv2.imshow('help', im2)
 # # cv2.waitKey(0)
-#
+# # exit(0)
+# 
 # random.seed(4)
-# ruler_fractal_dimension(cnt)
+# print(ruler_fractal_dimension(cnt))

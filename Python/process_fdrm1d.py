@@ -44,7 +44,7 @@ for file, img_path in files_paths:
                 img_color, img_gray = img_loader_mod.load_img(name)
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
-                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
                 cnt = np.squeeze(cnt)
