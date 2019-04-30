@@ -28,7 +28,7 @@ def angle(p1, p2, p3):  # calcula o angulo entre dois vetores usando o produto e
 
 def weighting(angles):
     angs = 0
-    div = 0
+    div = 1
     ang_thresh = sum(angles) / angles.__len__()
     for i in angles:
         if i < ang_thresh:
