@@ -52,9 +52,6 @@ def fourierFactor(Z0):
     for k in range(round(-N/2 + 1), round(N/2) + 1):
         denominador += abs(Z0[k])
 
-    print('numerador: ' + str(numerador))
-
-    print('denominador: ' + str(denominador))
     # calcula o fator de Fourier
     FF = 1 - (numerador/denominador)
 
@@ -88,16 +85,16 @@ def max_area_contour(contours):
 # Array com os pontos do contorno. Estou utilizando apenas 3 pontos, mas o correto é ler do arquivo.
 
 # N vai conter a quantidade de pontos no vetor
-(N, _, n) = cnt.shape
-# reshape necessário para poder utilizar o openCV
-# contornoReshape = contornoOriginal.reshape(N, 1, 2)
-# calcula os descritores de Fourier utilizando a função do openCV
-Zn = cv2.ximgproc.fourierDescriptor(approx)
-print(Zn)
-# calcula dos descritores de Fourier normalizados
-Z0 = normalizeFourierDescriptors(Zn)
-# calcula o Fator de Fourier
-print(fourierFactor(Z0))
+# (N, _, n) = cnt.shape
+# # reshape necessário para poder utilizar o openCV
+# # contornoReshape = contornoOriginal.reshape(N, 1, 2)
+# # calcula os descritores de Fourier utilizando a função do openCV
+# Zn = cv2.ximgproc.fourierDescriptor(approx)
+# print(Zn)
+# # calcula dos descritores de Fourier normalizados
+# Z0 = normalizeFourierDescriptors(Zn)
+# # calcula o Fator de Fourier
+# print(fourierFactor(Z0))
 
 
 

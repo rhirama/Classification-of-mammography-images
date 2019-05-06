@@ -21,8 +21,8 @@ def max_area_contour(contours):
     return cnt
 
 
-xlsx_54BND = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours54BND.xlsx'
-xlsx_57EDG = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours57EDG.xlsx'
+xlsx_54BND = 'Comparacao_contours54BND.xlsx'
+xlsx_57EDG = 'Comparacao_Contours57EDG.xlsx'
 
 imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
 imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
@@ -55,15 +55,19 @@ for file, img_path in files_paths:
                 epsilon = multiplier * perimeter
                 approx = cv2.approxPolyDP(cnt, epsilon,
                                           True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
-                cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)
+                # cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)
                 # cv2.imshow('modelo poligonal', canvas)
                 # cv2.waitKey(0)
 
-                fd.append(fd_mod.fractal_dimension(canvas))
+                (N, _, n) = approx.shape
+                Zn = cv2.ximgproc.fourierDescriptor(approx)
+                Z0 = fd_mod.normalizeFourierDescriptors(Zn)
+                fd.append(fd_mod.fourierFactor(Z0)[0][0])
+                print(name)
                 name = os.path.basename(name)
 
             # fd_df = pandas.DataFrame(fd)
-            features.insert(4, 'fd_2Dbox', fd, True)
+            features.insert(6, 'fourier_factor', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')
