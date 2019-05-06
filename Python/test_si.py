@@ -1,5 +1,6 @@
 import cv2
 import importlib
+import numpy as np
 import glob
 import os
 import xlsxwriter
@@ -19,7 +20,7 @@ def max_area_contour(contours):
     return cnt
 
 
-name = 'CIRC_FM_141.jpg'
+name = 'SPIC_DB_207.jpg'
 multiplier = 0.01
 
 img_color, img_gray = img_loader_mod.load_img(name)
@@ -31,10 +32,13 @@ perimeter = int(cv2.arcLength(cnt, True))
 epsilon = multiplier * perimeter
 approx = cv2.approxPolyDP(cnt, epsilon, True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
 cv2.drawContours(canvas, [approx],  0, (255, 255, 255), 1)
+zinka = approx[0:2]
+cv2.drawContours(canvas, [zinka],  0, (255, 0, 255), 1)
+
+print(zinka)
 
 cv2.imshow('modelo poligonal', canvas)
 cv2.waitKey(0)
 
-si = si_mod.calculate_si(approx)
-print(si)
+# si = si_mod.calculate_si(approx)
 
