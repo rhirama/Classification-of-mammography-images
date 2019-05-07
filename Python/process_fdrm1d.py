@@ -8,9 +8,8 @@ import pandas
 import numpy as np
 from matplotlib import pyplot as plt
 
-
 img_loader_mod = importlib.import_module('img_loader')
-fd_mod = importlib.import_module('fractal')
+fd_mod = importlib.import_module('Fractal')
 
 
 def max_area_contour(contours):
@@ -24,14 +23,14 @@ def max_area_contour(contours):
     return cnt
 
 
-xlsx_54BND = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours54BND.xlsx'
-xlsx_57EDG = 'D:\\Users\\Rodrigo S. Hirama\\Documentos\\EACH\\IC\\Classification-of-mammography-images\\Comparacao_contours57EDG.xlsx'
+xlsx_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_contours54BND.xlsx'
+xlsx_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_Contours57EDG.xlsx'
 
-imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
-imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
+imgs_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours54BND/*.jpg'
+imgs_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
-sheet_names = [0.05, 0.01, 0.001]
+sheet_names = [0.01, 0.001]
 writer = None
 features = None
 fd = []
@@ -41,12 +40,23 @@ for file, img_path in files_paths:
             fd = []
             features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
             for name in glob.glob(img_path):
+                print(name)
                 img_color, img_gray = img_loader_mod.load_img(name)
+                canvas = img_loader_mod.create_clear_canvas(img_gray)
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
                 im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
+                # make polygon approx.
+                perimeter = int(cv2.arcLength(cnt, True))
+                epsilon = multiplier * perimeter
+                approx = cv2.approxPolyDP(cnt, epsilon,
+                                          True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
+                cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)  # write polygon approx on canvas
+                im2, contours, hierarchy = cv2.findContours(canvas, cv2.RETR_LIST,
+                                                            cv2.CHAIN_APPROX_NONE)  # find contours of canvas
+                cnt = max_area_contour(contours)
                 cnt = np.squeeze(cnt)
                 one_d = img_loader_mod.make_1d_contour(cnt)
 
@@ -61,7 +71,7 @@ for file, img_path in files_paths:
                 img_gray = cv2.bitwise_not(img_gray)  # invert colors on the temp png
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
-                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
                 fd.append(fd_mod.ruler_fractal_dimension(cnt))
