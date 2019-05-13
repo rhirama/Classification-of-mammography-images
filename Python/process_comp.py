@@ -7,7 +7,7 @@ import xlsxwriter
 import pandas
 
 img_loader_mod = importlib.import_module('img_loader')
-fd_mod = importlib.import_module('Fractal')
+fd_mod = importlib.import_module('compactness')
 
 
 def max_area_contour(contours):
@@ -55,15 +55,15 @@ for file, img_path in files_paths:
                 epsilon = multiplier * perimeter
                 approx = cv2.approxPolyDP(cnt, epsilon,
                                           True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
-                cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)
+                # cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)
                 # cv2.imshow('modelo poligonal', canvas)
                 # cv2.waitKey(0)
 
-                fd.append(fd_mod.fractal_dimension_boxcount(canvas))
+                fd.append(fd_mod.compactness(approx))
                 name = os.path.basename(name)
 
             # fd_df = pandas.DataFrame(fd)
-            features.insert(6, 'fd_2Dbox', fd, True)
+            features.insert(1, 'compactness', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')

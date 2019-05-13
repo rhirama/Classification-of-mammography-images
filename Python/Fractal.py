@@ -6,7 +6,7 @@ from math import sqrt, inf
 from matplotlib import pyplot as plt
 
 
-def fractal_dimension(z, threshold=120):
+def fractal_dimension_boxcount(z, threshold=120):
     # Only for 2d image
     assert (len(z.shape) == 2)
 
@@ -142,7 +142,6 @@ def normalize_contour(contour):
     y_amplitude = max_y - min_y
     # print("x_amplitude:", x_amplitude, "y_amplitude:", y_amplitude)
     amplitude = float(max(x_amplitude, y_amplitude))
-
 
     for i in range(len(contour)):
         # print("pixel[0]:", contour[i][0], "pixel[1]:", contour[i][1])

@@ -39,7 +39,7 @@ def weighting(angles):
     return ang_weight
 
 
-def calculate_si(approx, perimeter):
+def calculate_si(approx):
     numer = 0
     denom = 1
     last_180 = 0
@@ -48,6 +48,7 @@ def calculate_si(approx, perimeter):
     angles = []
     sizes = []
     aux_ang = []
+    # lista = []
 
     for i in range(len(approx)):
         line1 = approx[i - 2, 0]
@@ -62,14 +63,18 @@ def calculate_si(approx, perimeter):
         if ang > 180:
             last_180 = i
 
-    var = angles.__len__() - last_180
+    var = last_180 - angles.__len__()
+    # print(approx.shape)
 
-    for i in range(last_180 - angles.__len__() + 1, angles.__len__() - var):
-
+    for i in range(var, angles.__len__() + var):
         if angles[i] <= 180:
+
             length += sizes[i]
             aux_ang.append(angles[i])
         else:
+            # print(i)
+            # print(angles[i])
+            # lista.append(i)
             if aux_ang.__len__() < 1:
                 continue
             ang = np.cos(np.degrees(weighting(aux_ang))) + 1

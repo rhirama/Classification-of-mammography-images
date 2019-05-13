@@ -28,7 +28,7 @@ imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
 imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
-sheet_names = [0.05, 0.01, 0.001]
+sheet_names = [0.01, 0.001]
 writer = None
 features = None
 fd = []
@@ -60,7 +60,7 @@ for file, img_path in files_paths:
                 # cv2.imshow('modelo poligonal', canvas)
                 # cv2.waitKey(0)
 
-                fd.append(si_mod.calculate_si(approx, perimeter))
+                fd.append(si_mod.calculate_si(approx))
                 img_name = os.path.basename(img_name)
 
             # fd_df = pandas.DataFrame(fd)
@@ -73,3 +73,4 @@ for file, img_path in files_paths:
             features.to_excel(writer, sheet_name=str(multiplier), index=False)
             writer.save()
 writer.close()
+

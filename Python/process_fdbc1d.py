@@ -5,6 +5,8 @@ import os
 import openpyxl
 import xlsxwriter
 import pandas
+import numpy as np
+from matplotlib import pyplot as plt
 
 img_loader_mod = importlib.import_module('img_loader')
 fd_mod = importlib.import_module('Fractal')
@@ -22,7 +24,7 @@ def max_area_contour(contours):
 
 
 xlsx_54BND = 'Comparacao_contours54BND.xlsx'
-xlsx_57EDG = 'Comparacao_contours57EDG.xlsx'
+xlsx_57EDG = 'Comparacao_Contours57EDG.xlsx'
 
 imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
 imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
@@ -38,32 +40,47 @@ for file, img_path in files_paths:
             fd = []
             features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
             for name in glob.glob(img_path):
+                print(name)
                 img_color, img_gray = img_loader_mod.load_img(name)
                 canvas = img_loader_mod.create_clear_canvas(img_gray)
-                contours = img_loader_mod.pre_process(img_gray)
+                ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
+                # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
+                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
-                # (x, y), radius = cv2.minEnclosingCircle(cnt)
-                # center = (int(x), int(y))
-                # radius = int(radius)
-                # cv2.circle(img_color, center, radius, (0, 255, 0), 1)
-                # cv2.imshow('circulo', img_color)
-                # cv2.waitKey(0)
-
-                # perimeter = 2 * math.pi * radius
+                # make polygon approx.
                 perimeter = int(cv2.arcLength(cnt, True))
                 epsilon = multiplier * perimeter
                 approx = cv2.approxPolyDP(cnt, epsilon,
                                           True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
-                cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)
-                # cv2.imshow('modelo poligonal', canvas)
-                # cv2.waitKey(0)
+                cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)  # write polygon approx on canvas
+                contours, hierarchy = cv2.findContours(canvas, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)  # find contours of canvas
+                cnt = max_area_contour(contours)
+                cnt = np.squeeze(cnt)
+                one_d = img_loader_mod.make_1d_contour(cnt)
 
-                fd.append(fd_mod.fractal_dimension_boxcount(canvas))
+                # make 1d image and save it on a temporary png
+                fig = plt.figure(frameon=False)
+                ax = fig.add_axes([0, 0, 1, 1])
+                ax.plot(one_d)
+                fig.savefig('temp')
+
+                # load the temp png and execute the box counting
+                img_color, img_gray = img_loader_mod.load_img("temp.png")
+                img_gray = cv2.bitwise_not(img_gray)  # invert colors on the temp png
+                ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
+                # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
+                # contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                # cnt = max_area_contour(contours)
+                # cv2.drawContours(im2, [cnt], 0, (255, 255, 255), 1)
+
+                fd.append(fd_mod.fractal_dimension_boxcount(thresh))
                 name = os.path.basename(name)
 
+                cv2.imwrite(name, thresh)
+
             # fd_df = pandas.DataFrame(fd)
-            features.insert(6, 'fd_2Dbox', fd, True)
+            features.insert(8, 'fd_1Dbox', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')

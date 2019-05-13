@@ -72,13 +72,14 @@ for file, img_path in files_paths:
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
                 im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
                 cnt = max_area_contour(contours)
 
                 fd.append(fd_mod.ruler_fractal_dimension(cnt))
                 name = os.path.basename(name)
 
             # fd_df = pandas.DataFrame(fd)
-            features.insert(4, 'fd_1Druler', fd, True)
+            features.insert(4, 'fd_1Dbox', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')

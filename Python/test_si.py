@@ -20,25 +20,25 @@ def max_area_contour(contours):
     return cnt
 
 
-name = 'SPIC_DB_207.jpg'
+name = 'teste3.jpg'
 multiplier = 0.01
 
 img_color, img_gray = img_loader_mod.load_img(name)
-canvas = img_loader_mod.create_clear_canvas(img_color)
+canvas = img_loader_mod.create_clear_canvas(img_gray)
 contours = img_loader_mod.pre_process(img_gray)
 cnt = max_area_contour(contours)
 
 perimeter = int(cv2.arcLength(cnt, True))
 epsilon = multiplier * perimeter
+
 approx = cv2.approxPolyDP(cnt, epsilon, True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
-cv2.drawContours(canvas, [approx],  0, (255, 255, 255), 1)
-zinka = approx[0:2]
-cv2.drawContours(canvas, [zinka],  0, (255, 0, 255), 1)
-
-print(zinka)
-
-cv2.imshow('modelo poligonal', canvas)
+cv2.drawContours(canvas, [approx],  0, (128, 128, 128), 1)
+print(approx)
+cv2.imshow('poly', canvas)
 cv2.waitKey(0)
+si, lista = si_mod.calculate_si(approx)
 
-# si = si_mod.calculate_si(approx)
+cv2.imshow('img', canvas)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
