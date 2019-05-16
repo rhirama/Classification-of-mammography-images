@@ -21,11 +21,15 @@ def max_area_contour(contours):
     return cnt
 
 
-xlsx_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_contours54BND.xlsx'
-xlsx_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_Contours57EDG.xlsx'
+# xlsx_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_contours54BND.xlsx'
+# xlsx_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Python/Comparacao_Contours57EDG.xlsx'
+xlsx_54BND = 'Comparacao_contours54BND.xlsx'
+xlsx_57EDG = 'Comparacao_Contours57EDG.xlsx'
 
-imgs_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours54BND/*.jpg'
-imgs_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours57EDG/*.jpg'
+# imgs_54BND = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours54BND/*.jpg'
+# imgs_57EDG = '/home/who/Documents/cg/Classification-of-mammography-images/Imagens/Contours57EDG/*.jpg'
+imgs_54BND = 'Contours54BND/*.jpg'
+imgs_57EDG = 'Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
 sheet_names = [0.01, 0.001]
@@ -37,7 +41,7 @@ for file, img_path in files_paths:
     for multiplier in sheet_names:
         fd = []
         features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
-        for name in glob.glob(img_path):
+        for name in sorted(glob.glob(img_path)):
             print(name)
             img_color, img_gray = img_loader_mod.load_img(name)
             canvas = img_loader_mod.create_clear_canvas(img_gray)
@@ -69,7 +73,7 @@ for file, img_path in files_paths:
             name = os.path.basename(name)
 
         # fd_df = pandas.DataFrame(fd)
-        features.insert(4, 'fd_2Druler', fd, True)
+        features.insert(8, 'fd_2Druler', fd, True)
         # file = os.path.basename(file)
         excel = openpyxl.load_workbook(file, read_only=False)
         writer = pandas.ExcelWriter(file, engine='openpyxl')

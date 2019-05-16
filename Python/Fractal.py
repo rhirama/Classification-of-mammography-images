@@ -53,6 +53,7 @@ def ruler_fractal_dimension(contour):
     perimeters = []
 
     step_len = 0.3
+    # step_len = 0.050
     for i in range(0, 7):
         perimeter = 0
         step_sizes = 0
@@ -70,6 +71,7 @@ def ruler_fractal_dimension(contour):
         perimeters.append(perimeter / 50)
 
         step_len = step_len / 2
+        # step_len += 0.025
 
     coeffs = np.polyfit(np.log(steps), np.log(perimeters), 1)
     # print(1-coeffs[0])
