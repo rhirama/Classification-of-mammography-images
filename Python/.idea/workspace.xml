@@ -2,6 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23402b7c-928d-48db-b3e5-929a68060538" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/cross_val_file-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/get_white_pixels_test-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/svm_test-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/54BND_0,001.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/54BND_0,01.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/54BND_kf.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57EDG_0,001.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57EDG_0,01.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57EDG_kf.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/combined_0,001.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/combined_0,01.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/combined_kf.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cross_val_file.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_white_pixels_test.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svm_test.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Comparacao_Contours57EDG.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Comparacao_Contours57EDG.xlsx" afterDir="false" />
@@ -449,12 +464,12 @@
       <workItem from="1557888730379" duration="796000" />
       <workItem from="1558015148629" duration="3422000" />
       <workItem from="1558115011516" duration="711000" />
-      <workItem from="1558636383140" duration="7182000" />
+      <workItem from="1558636383140" duration="7784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100863000" />
+    <option name="totallyTimeSpent" value="101465000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,14 +482,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1108742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5135428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.057421453" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.057421453" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
