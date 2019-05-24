@@ -37,7 +37,7 @@ for file, img_path in files_paths:
         for multiplier in sheet_names:
             fd = []
             features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
-            for name in glob.glob(img_path):
+            for name in sorted(glob.glob(img_path)):
                 img_color, img_gray = img_loader_mod.load_img(name)
                 canvas = img_loader_mod.create_clear_canvas(img_gray)
                 contours = img_loader_mod.pre_process(img_gray)

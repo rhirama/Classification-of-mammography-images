@@ -67,7 +67,7 @@ for file, img_path in files_paths:
                 # make 1d image and save it on a temporary png
                 fig = plt.figure(frameon=False)
                 ax = fig.add_axes([0, 0, 1, 1])
-                ax.plot(one_d)
+                ax.plot(one_d, linewidth=0.5)
                 fig.savefig('temp')
 
                 # load the temp png and execute the ruler method
