@@ -69,6 +69,7 @@ for file, img_path in files_paths:
             writer = pandas.ExcelWriter(file, engine='openpyxl')
             writer.book = excel
             writer.sheets = dict((ws.title, ws) for ws in excel.worksheets)
+            
             features.to_excel(writer, sheet_name=str(multiplier), index=False)
             writer.save()
 writer.close()
