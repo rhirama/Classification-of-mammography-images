@@ -27,6 +27,10 @@ def pre_process(img_gray):
 def make_1d_contour(contour):
     # get Moment of contour: https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html
     M = cv2.moments(contour)
+
+    if M['m00'] == 0:  # i think this is wrong
+        M['m00'] = 1
+
     c_x = int(M['m10'] / M['m00'])
     c_y = int(M['m01'] / M['m00'])
     centroid = [c_x, c_y]

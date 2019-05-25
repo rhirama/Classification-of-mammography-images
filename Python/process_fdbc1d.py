@@ -30,7 +30,7 @@ imgs_54BND = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours54BND/*.jpg'
 imgs_57EDG = 'D:/Users/Rodrigo S. Hirama/Imagens/Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
-sheet_names = [0.01, 0.001]
+sheet_names = [0.05]
 writer = None
 features = None
 fd = []
@@ -39,13 +39,13 @@ for file, img_path in files_paths:
         for multiplier in sheet_names:
             fd = []
             features = pandas.read_excel(file, sheet_name=str(multiplier), header=0, skipfooter=0)
-            for name in glob.glob(img_path):
+            for name in sorted(glob.glob(img_path)):
                 print(name)
                 img_color, img_gray = img_loader_mod.load_img(name)
                 canvas = img_loader_mod.create_clear_canvas(img_gray)
                 ret, thresh = cv2.threshold(img_gray, 20, 255, cv2.THRESH_BINARY)
                 # RETR_EXTERNAL for getting only the outer contour and CHAIN_APPROX_NONE to return a list of contour points
-                contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                _, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
                 cnt = max_area_contour(contours)
 
                 # make polygon approx.
@@ -54,7 +54,7 @@ for file, img_path in files_paths:
                 approx = cv2.approxPolyDP(cnt, epsilon,
                                           True)  # parâmetros para testar: epsilon(dita o quao simplificada fica a figura)
                 cv2.drawContours(canvas, [approx], 0, (255, 255, 255), 1)  # write polygon approx on canvas
-                contours, hierarchy = cv2.findContours(canvas, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)  # find contours of canvas
+                _, contours, hierarchy = cv2.findContours(canvas, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)  # find contours of canvas
                 cnt = max_area_contour(contours)
                 cnt = np.squeeze(cnt)
                 one_d = img_loader_mod.make_1d_contour(cnt)
@@ -77,10 +77,8 @@ for file, img_path in files_paths:
                 fd.append(fd_mod.fractal_dimension_boxcount(thresh))
                 name = os.path.basename(name)
 
-                cv2.imwrite(name, thresh)
-
             # fd_df = pandas.DataFrame(fd)
-            features.insert(8, 'fd_1Dbox', fd, True)
+            features.insert(6, 'fd_1Dbox', fd, True)
             # file = os.path.basename(file)
             excel = openpyxl.load_workbook(file, read_only=False)
             writer = pandas.ExcelWriter(file, engine='openpyxl')

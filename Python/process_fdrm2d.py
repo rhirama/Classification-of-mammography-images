@@ -32,7 +32,7 @@ imgs_54BND = 'Contours54BND/*.jpg'
 imgs_57EDG = 'Contours57EDG/*.jpg'
 
 files_paths = [(xlsx_54BND, imgs_54BND), (xlsx_57EDG, imgs_57EDG)]
-sheet_names = [0.01, 0.001]
+sheet_names = [0.05]
 writer = None
 features = None
 fd = []
@@ -73,7 +73,7 @@ for file, img_path in files_paths:
             name = os.path.basename(name)
 
         # fd_df = pandas.DataFrame(fd)
-        features.insert(8, 'fd_2Druler', fd, True)
+        features.insert(7, 'fd_2Druler', fd, True)
         # file = os.path.basename(file)
         excel = openpyxl.load_workbook(file, read_only=False)
         writer = pandas.ExcelWriter(file, engine='openpyxl')
