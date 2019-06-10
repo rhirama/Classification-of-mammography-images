@@ -19,9 +19,9 @@ def max_area_contour(contours):
 
 
 img_loader_mod = importlib.import_module('img_loader')
-comp_mod = importlib.import_module('compactness')
-si_mod = importlib.import_module('spiculation_old')
-ff_mod = importlib.import_module('fourierDescriptor')
+comp_mod = importlib.import_module('Compactness')
+si_mod = importlib.import_module('Spiculation_old')
+ff_mod = importlib.import_module('FourierDescriptor')
 fd_mod = importlib.import_module('Fractal')
 
 
@@ -33,12 +33,12 @@ diagnosis57 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 diagnosis54 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 files_paths = [(imgs_54BND, 54, diagnosis54), (imgs_57EDG, 57, diagnosis57)]
-multipliers = np.arange(0.001, 0.011, 0.001)
+multipliers = np.arange(0.011, 0.02, 0.0005)
 labels = ['name', 'compactness', 'si', 'fourier_factor', 'fd2Dbox', 'fd1Dbox', 'fd2Druler', 'fd1Druler']
 
 for img_path, dataset, diag in files_paths:
     for m in multipliers:
-        m = round(m, 3)
+        m = round(m, 4)
         features = []
         row = []
         row_labels = []
@@ -78,6 +78,7 @@ for img_path, dataset, diag in files_paths:
             ax = fig.add_axes([0, 0, 1, 1])
             ax.plot(one_d, linewidth=1)
             fig.savefig('temp')
+            plt.close(fig)
 
             _, plot_gray = img_loader_mod.load_img("temp.png")
             img_gray = cv2.bitwise_not(plot_gray)  # invert colors on the temp png

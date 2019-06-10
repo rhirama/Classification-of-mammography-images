@@ -39,8 +39,8 @@ def fractal_dimension_boxcount(z, threshold=120):
 
     # Fit the successive log(sizes) with log (counts)
     coeffs = np.polyfit(np.log(sizes), np.log(counts), 1)
-    plt.plot(np.log(counts), np.log(sizes))
-    plt.show()
+    # plt.plot(np.log(counts), np.log(sizes))
+    # plt.show()
     return -coeffs[0]
 
 
@@ -66,7 +66,7 @@ def ruler_fractal_dimension(contour):
         if perimeter <= 0:
             break
 
-        print('step_len: ', step_sizes / 50, ' perimeter: ', perimeter / 50)
+        # print('step_len: ', step_sizes / 50, ' perimeter: ', perimeter / 50)
         steps.append(step_sizes / 50)
         perimeters.append(perimeter / 50)
 
@@ -78,7 +78,7 @@ def ruler_fractal_dimension(contour):
     # plt.plot(np.log(steps), np.log(perimeters))
     # plt.plot(np.log(steps), np.log(steps)*coeffs[0]+coeffs[1])
     # plt.show()
-    print(1 - coeffs[0])
+    # print(1 - coeffs[0])
     return 1 - coeffs[0]
 
 

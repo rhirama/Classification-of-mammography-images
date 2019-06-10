@@ -12,7 +12,7 @@ def angle(p1, p2, p3):  # calcula o angulo entre dois vetores usando o produto e
 
     numer = (x1 * x2 + y1 * y2)
     denom = dist1 * dist2
-    ang_aux = math.degrees(math.acos(numer / denom))
+    ang_aux = math.degrees(math.acos(round(numer / denom, 4)))
 
     z_direction = ((p2[0] - p1[0]) * (p3[1] - p2[1])) - ((p3[0] - p2[0]) * (p2[1] - p1[1]))
 
