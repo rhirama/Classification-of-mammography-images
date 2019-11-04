@@ -25,7 +25,6 @@ def get_poly_models(paths, ini_mult=0.001, end_mult=0.01, step=0.001, n_polymode
         multipliers = np.arange(ini_mult, end_mult, step)
     for img_path in paths:
         for m in multipliers:
-            print(m)
             for name in sorted(glob.glob(img_path)):
                 img_color, img_gray = imlo.load_img(name)
                 contours = imlo.pre_process(img_gray)
@@ -35,6 +34,8 @@ def get_poly_models(paths, ini_mult=0.001, end_mult=0.01, step=0.001, n_polymode
                 epsilon = m * perimeter
                 approx = cv2.approxPolyDP(cnt, epsilon, True)
                 approx = np.squeeze(approx)
+                poly_shape = approx.shape[0]
+                approx = approx.reshape((poly_shape*2))
 
                 name = os.path.splitext(os.path.basename(name))[0]
                 write_file(_destination, folder=str(m), file=name, poly_p=approx)
