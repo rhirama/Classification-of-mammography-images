@@ -36,7 +36,7 @@ def get_poly_models(paths, ini_mult=0.001, end_mult=0.01, step=0.001, n_polymode
                 approx = np.squeeze(approx)
 
                 name = os.path.splitext(os.path.basename(name))[0]
-                write_file(_destination, folder=str(m), file=name, poly_p=approx)
+                write_file(_destination, folder=str(m), file=name, poly_p=approx, sep         )
 
 
 def write_file(destination, folder, file, poly_p, extension='.txt'):
