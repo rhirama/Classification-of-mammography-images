@@ -20,8 +20,19 @@ def pre_process(img_gray):
     # dependendo da imagem modificar os valores de thresh e maxval, para as imagens do Ricardo 20, 255
     ret, thresh = cv2.threshold(img_gray, 20, 255,
                                 cv2.THRESH_BINARY)
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    contours = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
     return contours
+
+
+def max_area_contour(contours):
+    cnt = contours[0]
+    max_area = cv2.contourArea(cnt)
+
+    for cont in contours:
+        if cv2.contourArea(cont) > max_area:
+            cnt = cont
+            max_area = cv2.contourArea(cont)
+    return cnt
 
 
 def make_1d_contour(contour):
