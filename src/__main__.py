@@ -5,14 +5,19 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import os
 
-import img_loader
-import polygon
-import segments
-import fourierDescriptor
-import fractal
-from compactness import compactness
+import src.img_loader as img_loader
+import src.polygon as polygon
+import src.segments as segments
+import src.fourierDescriptor as fourierDescriptor
+import src.fractal as fractal
+from src.compactness import compactness
 imgs_57EDG = 'images/Contours57EDG/*.jpg'
 imgs_54BND = 'images/Contours54BND/*.jpg'
+
+diagnosis = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+             0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,
+             0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+             1, 1, 1]
 
 paths = [imgs_57EDG, imgs_54BND]
 eps_multipliers = np.linspace(0.001, 0.02, 20)
@@ -20,8 +25,32 @@ cont = 0
 
 if __name__ == "__main__":
     for mult in eps_multipliers:
-        opencv_feats = {}
-        pb_feats = {}
+        mult = round(mult, 3)
+        opencv_feats = {
+            "img": [],
+            "diag": [],
+            "c": [],
+            "si": [],
+            "fcc": [],
+            "ff": [],
+            "fdbc2d": [],
+            "fdbc1d": [],
+            "fdrm2d": [],
+            "fdrm1d": []
+        }
+        pb_feats = {
+            "img": [],
+            "diag": [],
+            "c": [],
+            "si": [],
+            "fcc": [],
+            "ff": [],
+            "fdbc2d": [],
+            "fdbc1d": [],
+            "fdrm2d": [],
+            "fdrm1d": []
+        }
+
         for imgs_path in paths:
             for img_name in sorted(glob.glob(imgs_path)):
                 img_color, img_gray = img_loader.load_img(img_name)
@@ -84,22 +113,31 @@ if __name__ == "__main__":
 
                     cnt = img_loader.max_area_contour(contours[0])
                     fdrm1d = fractal.ruler_fractal_dimension(cnt)
+                    img_name = os.path.basename(os.path.splitext(img_name)[0])
 
-                    feat_row["img"] = os.path.basename(os.path.splitext(img_name)[0])
-                    feat_row["c"] = comp
-                    feat_row["si"] = si
-                    feat_row["fcc"] = fcc
-                    feat_row["ff"] = ff
-                    feat_row["fdbc2d"] = fdbc2d
-                    feat_row["fdbc1d"] = fdbc1d
-                    feat_row["fdrm2d"] = fdrm2d
-                    feat_row["fdrm1d"] = fdrm1d
                     if i % 2 == 0:
-                        opencv_feats[cont] = feat_row
+                        opencv_feats["img"].append(img_name)
+                        opencv_feats["diag"].append(diagnosis[cont % len(diagnosis)])
+                        opencv_feats["c"].append(comp)
+                        opencv_feats["si"].append(si)
+                        opencv_feats["fcc"].append(fcc)
+                        opencv_feats["ff"].append(ff)
+                        opencv_feats["fdbc2d"].append(fdbc2d)
+                        opencv_feats["fdbc1d"].append(fdbc1d)
+                        opencv_feats["fdrm2d"].append(fdrm2d)
+                        opencv_feats["fdrm1d"].append(fdrm1d)
                     else:
-                        pb_feats[cont] = feat_row
+                        pb_feats["img"].append(img_name)
+                        pb_feats["diag"].append(diagnosis[cont % len(diagnosis)])
+                        pb_feats["c"].append(comp)
+                        pb_feats["si"].append(si)
+                        pb_feats["fcc"].append(fcc)
+                        pb_feats["ff"].append(ff)
+                        pb_feats["fdbc2d"].append(fdbc2d)
+                        pb_feats["fdbc1d"].append(fdbc1d)
+                        pb_feats["fdrm2d"].append(fdrm2d)
+                        pb_feats["fdrm1d"].append(fdrm1d)
                     i += 1
-
                 print(cont)
                 cont += 1
         pd.DataFrame.from_dict(opencv_feats, orient="index").to_csv(str(mult)+"_opencv.csv")
