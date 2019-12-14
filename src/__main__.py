@@ -11,8 +11,8 @@ import segments
 import fourierDescriptor
 import fractal
 from compactness import compactness
-imgs_57EDG = 'Contours57EDG/*.jpg'
-imgs_54BND = 'Contours54BND/*.jpg'
+imgs_57EDG = 'images/Contours57EDG/*.jpg'
+imgs_54BND = 'images/Contours54BND/*.jpg'
 
 paths = [imgs_57EDG, imgs_54BND]
 eps_multipliers = np.linspace(0.001, 0.02, 20)
