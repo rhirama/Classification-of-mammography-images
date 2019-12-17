@@ -3,14 +3,15 @@ import numpy as np
 import glob
 import pandas as pd
 from matplotlib import pyplot as plt
+from matplotlib.figure import Figure
 import os
 
-import src.img_loader as img_loader
-import src.polygon as polygon
-import src.segments as segments
-import src.fourierDescriptor as fourierDescriptor
-import src.fractal as fractal
-from src.compactness import compactness
+import img_loader 
+import polygon 
+import segments
+import fourierDescriptor 
+import fractal 
+from compactness import compactness
 imgs_57EDG = 'images/Contours57EDG/*.jpg'
 imgs_54BND = 'images/Contours54BND/*.jpg'
 
@@ -72,7 +73,6 @@ if __name__ == "__main__":
                 models = [(polydp, dp_per), (polypb, pb_per)]
                 i = 0
                 for model, per in models:
-                    feat_row = {}
                     img = img_loader.create_clear_canvas(img_gray) * 255
                     cv2.fillPoly(img, [model], (0, 0, 0))
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
                     Z0 = fourierDescriptor.normalizeFourierDescriptors(Zn)
                     ff = fourierDescriptor.fourierFactor(Z0)[0][0]
 
-                    canvas = np.zeros(img_gray.shape, np.uint8)
+                    canvas = np.zeros(img.shape, np.uint8)
                     cv2.drawContours(canvas, [model], 0, (255, 255, 255), 1)
                     fractal_contour = cv2.findContours(canvas, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
                     fractal_contour = img_loader.max_area_contour(fractal_contour[0])
@@ -101,11 +101,15 @@ if __name__ == "__main__":
                     fig = plt.figure(frameon=False)
                     ax = fig.add_axes([0, 0, 1, 1])
                     ax.plot(one_d)
-                    fig.savefig('temp')
+                    # fig.savefig('temp')
+                    
+                    fig.canvas.draw()
+                    one_d_img = np.array(fig.canvas.renderer._renderer)
                     plt.close(fig)
 
-                    _, one_d_img = img_loader.load_img("temp.png")
+                    one_d_img = cv2.cvtColor(one_d_img, cv2.COLOR_BGR2GRAY)
                     one_d_img = cv2.bitwise_not(one_d_img)  # invert colors on the temp png
+
                     ret, thresh = cv2.threshold(one_d_img, 20, 255, cv2.THRESH_BINARY)
 
                     fdbc1d = fractal.fractal_dimension_boxcount(thresh)
@@ -140,7 +144,5 @@ if __name__ == "__main__":
                     i += 1
                 print(cont)
                 cont += 1
-        pd.DataFrame.from_dict(opencv_feats, orient="index").to_csv(str(mult)+"_opencv.csv")
-        pd.DataFrame.from_dict(pb_feats, orient="index").to_csv(str(mult)+"_pb.csv")
-
-    print("pintao")
+        pd.DataFrame.from_dict(opencv_feats, orient="columns").to_csv(str(mult)+"_opencv.csv")
+        pd.DataFrame.from_dict(pb_feats, orient="columns").to_csv(str(mult)+"_pb.csv")

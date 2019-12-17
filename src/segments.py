@@ -58,19 +58,19 @@ def get_spicules(segments, img, cont):
     total_length_concave = 0
     i = 0
     spicules = []
-    while i < len(segments):
+    while i < len(segments) - 1:
         # x e y são as coordenadas do ponto médio do segmento que une dois pontos médios pertencentes aos segmentos do nódulo
-        x = int((segments[i].x_mid_point + segments[(i + 1) % len(segments)].x_mid_point) / 2)
-        y = int((segments[i].y_mid_point + segments[(i + 1) % len(segments)].y_mid_point) / 2)
+        x = int((segments[i].x_mid_point + segments[i + 1].x_mid_point) / 2)
+        y = int((segments[i].y_mid_point + segments[i + 1].y_mid_point) / 2)
         if img[y, x] == 255:  # se o ponto médio encontrado for branco, significa que está fora do nódulo
             total_length_concave += (segments[i].length + segments[(i + 1) % len(segments)].length) / 2  # talvez tenha que ser /2 length?
             i += 1
         else:
             spicule = [segments[i], segments[(i + 1) % len(segments)]]
             j = i + 1
-            while j < len(segments):
-                x_last = int((segments[j].x_mid_point + segments[(j + 1) % len(segments)].x_mid_point) / 2)
-                y_last = int((segments[j].y_mid_point + segments[(j + 1) % len(segments)].y_mid_point) / 2)
+            while j < len(segments) - 1:
+                x_last = int((segments[j].x_mid_point + segments[j + 1].x_mid_point) / 2)
+                y_last = int((segments[j].y_mid_point + segments[j + 1].y_mid_point) / 2)
 
                 if img[y_last, x_last] == 255:
                     break
@@ -94,9 +94,9 @@ def spiculation_index(spicules):
     for items in spicules:
         index = 0
         all_angles = []
-        while index < len(items):
+        while index < len(items) - 1:
             segment1 = items[index]
-            segment2 = items[(index + 1) % len(items)]
+            segment2 = items[index + 1]
             # print('segment: ', segment1.segment_id, ', length: ', segment1.length)
             # print('segment: ', segment2.segment_id, ', length: ', segment2.length)
             p1 = [segment1.x_initial, segment1.y_initial]
@@ -111,8 +111,11 @@ def spiculation_index(spicules):
             index += 1
         # necessario percorrer novamente para pegar o tamanho total da espícula e o tamanho total de todas as espiculas
         length_spicule = 0
+        i = 0
         for item in items:
-            length_spicule += item.length
+            if i == 0 or i == len(items) - 1:
+                length_spicule += item.length / 2
+            i += 1
 
         total_length_spicules += length_spicule
         mean_all_angles = sum(all_angles) / len(all_angles)
