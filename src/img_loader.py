@@ -2,8 +2,6 @@ import cv2
 import numpy as np
 from numpy.linalg import norm
 
-from fractal import dist
-
 
 def load_img(name):
     img = cv2.imread(name)
