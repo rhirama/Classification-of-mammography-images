@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from numpy.linalg import norm
 
 from fractal import dist
 
@@ -47,4 +48,4 @@ def make_1d_contour(contour):
     centroid = [c_x, c_y]
     # x, y, w, h = cv2.boundingRect(np.array(contour))
     # centroid = [x, y]
-    return np.array([[dist(contour[i], centroid)] for i in range(len(contour))])
+    return np.array([[norm(contour[i] - centroid)] for i in range(len(contour))])

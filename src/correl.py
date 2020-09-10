@@ -7,22 +7,22 @@ file = 'alberta_features.csv'
 
 alberta = pd.read_csv(file, header=0)
 alberta = alberta.drop(columns=["img", "diag"])
-eps_multipliers = np.linspace(0.001, 0.001, 1)
+eps_multipliers = np.linspace(0.001, 0.02, 20)
 
-models = ["_pb","_opencv"]
+models = ["_pb", "_opencv"]
 for mult in eps_multipliers:
-	mult = round(mult, 3)
-	for m in models:
-		feats_file = "{mult}{model}.csv".format(mult=mult, model=m)
-		feats = pd.read_csv(feats_file, header=0, index_col=0)
+    mult = round(mult, 3)
+    for m in models:
+        feats_file = "{mult}{model}.csv".format(mult=mult, model=m)
+        feats = pd.read_csv(feats_file, header=0, index_col=0)
 
-		feats = pd.concat([feats, alberta], axis=1)
+        feats = pd.concat([feats, alberta], axis=1)
 
-		correl = feats.corr()
-		plt.figure(figsize=(10,10))
-		sb.heatmap(correl, annot=True)
-		plt.savefig("{mult}{model}.png".format(mult=mult, model=m))
-		plt.close()
+        correl = feats.corr()
+        plt.figure(figsize=(16, 10))
+        sb.heatmap(correl, annot=True)
+        plt.savefig("{mult}{model}.png".format(mult=mult, model=m))
+        plt.close()
 
 # # feats_bnd_05 = feats_bnd.parse('0.05')
 # feats_bnd_01 = feats_bnd.parse('0.01')

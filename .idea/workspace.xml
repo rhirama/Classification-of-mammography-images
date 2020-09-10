@@ -2,13 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d315ab67-d43b-4021-93cb-34ab7ea5578d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Classification-of-mammography-images.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Classification-of-mammography-images.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.001_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.001_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.002_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.002_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.003_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.003_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.004_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.004_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.005_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.005_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.006_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.006_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.007_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.007_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.008_opencv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/0.008_opencv.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.008_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.009_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.009_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.011_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.011_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.012_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.012_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.013_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.013_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.014_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.014_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.015_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.015_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.016_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.016_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.017_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.017_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.018_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.018_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.019_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.019_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.01_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.01_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.02_opencv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.02_pb.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alberta_features" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/20folds_100holdouts-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/20folds_100holdouts.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/cross_val_file.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/cross_val_file.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/plot_p-value_matrices.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/correl.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/correl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fractal.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fractal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/img_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.png" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,8 +96,26 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -72,18 +163,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -98,6 +177,12 @@
       <workItem from="1554500729799" duration="1156000" />
       <workItem from="1576299164250" duration="49000" />
       <workItem from="1576346713719" duration="1697000" />
+      <workItem from="1576625526947" duration="5248000" />
+      <workItem from="1576727066448" duration="713000" />
+      <workItem from="1582744791408" duration="5089000" />
+      <workItem from="1583888804388" duration="53000" />
+      <workItem from="1599600446100" duration="679000" />
+      <workItem from="1599702358623" duration="3039000" />
     </task>
     <servers />
   </component>
@@ -116,5 +201,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Classification_of_mammography_images$src.coverage" NAME="src Coverage Results" MODIFIED="1599704424479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

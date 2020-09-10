@@ -3,6 +3,7 @@ import scipy
 import cv2
 import random
 from math import sqrt, inf
+from numpy.linalg import norm
 from matplotlib import pyplot as plt
 
 
@@ -52,7 +53,7 @@ def ruler_fractal_dimension(contour):
     steps = []
     perimeters = []
 
-    step_len = 0.3
+    step_len = 0.5
     # step_len = 0.050
     for i in range(0, 7):
         perimeter = 0
@@ -88,9 +89,9 @@ def ruler_method(contour, step_len):
     i = 0
     steps = 0
     while i < len(contour):
-        distance = dist(start, contour[i])
+        distance = norm(start - contour[i])
         if distance > step_len:
-            distance2 = dist(start, contour[i - 1])
+            distance2 = norm(start - contour[i - 1])
             if abs(distance - step_len) < abs(distance2 - step_len):  # current point is closest to step_len
                 perimeter += distance
                 start = contour[i]
@@ -105,13 +106,9 @@ def ruler_method(contour, step_len):
             steps += 1
             continue  # skip the "i += 1" line
         i += 1
-    perimeter += dist(start, contour[i - 1])  # adds the unfinished line to perimeter
+    perimeter += norm(start - contour[i - 1])  # adds the unfinished line to perimeter
 
     return perimeter, perimeter/steps
-
-
-def dist(a, b):
-    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
 def shuffle_contour(contour):
